@@ -6,6 +6,7 @@ const rock = document.querySelector("#Rock");
 const paper = document.querySelector("#Paper");
 const result = document.getElementById("result");
 const result1 = document.getElementById("result1") 
+const reset = document.querySelector("#reset");
 
 let computerMove;
 let userMove;
@@ -31,6 +32,7 @@ scissor.addEventListener("click",()=>{
     changeComputerImage(computerMove);
     changeUserImage(userMove);
     displayResult();
+    animation();
 });
 
 rock.addEventListener("click",()=>{
@@ -49,6 +51,7 @@ rock.addEventListener("click",()=>{
     changeComputerImage(computerMove);
     changeUserImage(userMove);
     displayResult();
+    animation();
 });
 paper.addEventListener("click",()=>{
     userMove = "PAPER"
@@ -66,8 +69,15 @@ paper.addEventListener("click",()=>{
     changeComputerImage(computerMove);
     changeUserImage(userMove);
     displayResult();
+    animation();
 });
 
+reset.addEventListener("click",()=>{
+  winsCount=0;
+  lossesCount=0;
+  tiesCount=0;
+  displayResult();
+});
 
 
 
@@ -114,5 +124,19 @@ function changeUserImage(userMove1){
 
 //Update the result
 function displayResult(){
-    result.innerText = WINS: ${winsCount} Losses: ${lossesCount} Tie: ${tiesCount};
+    result.innerText = `WINS: ${winsCount} Losses: ${lossesCount} Tie: ${tiesCount}`;
+}
+
+function animation(){
+  // Reset animation first to ensure it plays every time
+  computerImg.style.animation = "none";
+  userImg.style.animation = "none";
+
+  // Trigger a reflow (force browser to re-apply styles)
+  computerImg.offsetHeight; // This is a trick to reset the animation
+  userImg.offsetHeight;     // This triggers reflow, so the animation is applied again
+  
+  // Apply the animation
+  computerImg.style.animation = "expand 0.3s ease-in-out 2 alternate-reverse";
+  userImg.style.animation = "expand 0.3s ease-in-out 2 alternate-reverse";
 }

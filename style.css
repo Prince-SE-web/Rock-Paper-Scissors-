@@ -7,11 +7,11 @@
 html,body{
   height: 100vh;
   width: 100vw;
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family:'Franklin Gothic Medium';
 }
 
 #main{
-  background-color: rgb(78, 77, 77);
+  background-color: rgb(10, 41, 125);
   position: absolute;
   top: 50%;
   left:50%;
@@ -24,11 +24,13 @@ html,body{
   text-align: center;
   font-weight: bolder;
   color:white;
+  background-color: black;
+  border:2px solid white;
 }
 .options{
   height:200px;
   width:200px;
-  border:3px solid rgb(0, 0, 0);
+  border:2px solid rgb(0, 0, 0);
   border-radius: 50%;
   cursor:pointer;
   background-color: white;
@@ -77,14 +79,84 @@ html,body{
   height: 200px;
   width:200px;
   border-radius: 50%;
+  animation: expand 0.7s ease-in-out 2 alternate-reverse;
+
 }
 #result{
   color: white;
   text-align: center;
+  font-size: 30px;
 }
 #result1{
   color: white;
   font-size: 30px;
   text-align: center;
   margin: 10px;
+}
+
+#reset{
+  display: block;
+  font-family: 'Franklin Gothic Medium';
+  position: relative;
+  margin:20px auto;
+  padding:10px 20px;
+  font-size: 24px;
+  border: 2px solid black;
+  font-weight: bold;
+  border-radius: 10px;
+  color:white;
+  background-color: black;
+  cursor:pointer;
+}
+#reset::after{
+  content:'';
+  position:absolute;
+  bottom: 0;
+  left:0px;
+  height:3px;
+  width:0%;
+  transition: width 1s ease-out;
+  background-color:white;
+}
+#reset:hover::after{
+  width:100%;
+}
+
+@keyframes expand{
+  from{
+    transform: scale(0)  rotate(0deg);
+  }
+  to{
+    transform: scale(1)  rotate(360deg);
+  }
+}
+
+@media (max-width:768px){
+  #main{
+    height:100%;
+    width: 100%;
+  }
+  #heading{
+    font-size: 24px;
+    width: 90vw;
+  }
+  .options{
+    width:120px;
+    height: 120px;
+    border-radius:50%;
+    margin-top: 15px;
+  }
+  .box1{
+    display:flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap:10px;
+  }
+  .img{
+    width: 120px;
+    height:120px;
+  }
+  .text1{
+    font-size: 5px;
+  }
 }

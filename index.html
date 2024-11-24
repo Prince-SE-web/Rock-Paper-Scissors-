@@ -7,7 +7,27 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="main">
+    <h1 id="heading">ROCK PAPER SCISSORS GAME</h1>
+    <div class="container">
+    <div class="options" id="Scissor"></div>
+    <div class="options" id="Rock"></div>
+    <div class="options" id="Paper"></div>
+</div>
+    <div class="container box1">
+        <h1 class="text">Your move: </h1>
+        <div>
+            <img src="images/paper.png" alt="Your move" class="img" id="userMove">
+        </div>
+        <h1 class="text">Computer's move: </h1>
+        <div ><img src="images/rock.png" alt="Your move" class="img" id="computerMove">
+        </div>
+        </div>
+        <h2 id="result1" class="text1">Start Playing</h2>
 
+    <h1 id="result" class="text1">WINS: <span id="won">0</span> Losses:<span id="losses">0</span id="tie"> Tie:<span>0</span></h1>
+        <button id="reset">Play Again</button>
+  </div>
   <script src="game.js"></script>
 </body>
 </html>
